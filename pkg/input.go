@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"fmt"
+	"os"
 	"regexp"
 	"strconv"
 
@@ -35,6 +36,7 @@ func InputText(text string, validation string) string {
 	prompt := promptui.Prompt{
 		Label:    text,
 		Validate: validate,
+		Stdin: os.Stdin,
 	}
 
 	result, err := prompt.Run()
